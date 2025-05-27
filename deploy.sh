@@ -35,7 +35,7 @@ fi
 # Определение директории проекта
 PROJECT_DIR="/root/photo-estimator-bot"
 VENV_DIR="$PROJECT_DIR/gpt-bot-env"
-REPO_URL="https://github.com/your-username/photo-estimator-bot.git"
+REPO_URL="https://github.com/marakoris/photo-estimator-bot.git"
 
 log "Проверяем системные зависимости..."
 
