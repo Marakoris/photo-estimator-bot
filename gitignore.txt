@@ -1,0 +1,76 @@
+# Переменные окружения
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Виртуальные окружения
+venv/
+env/
+gpt-bot-env/
+ENV/
+.venv
+
+# Логи
+*.log
+logs/
+web_api.log
+bot.log
+
+# Временные файлы
+*.tmp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Системные файлы
+.cache/
+.local/
+
+# SSL сертификаты
+*.pem
+*.key
+*.crt
+
+# Базы данных
+*.db
+*.sqlite
+*.sqlite3
