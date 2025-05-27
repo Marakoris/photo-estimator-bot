@@ -35,6 +35,7 @@ fi
 # Определение директории проекта
 PROJECT_DIR="/root/photo-estimator-bot"
 VENV_DIR="$PROJECT_DIR/gpt-bot-env"
+REPO_URL="https://github.com/your-username/photo-estimator-bot.git"
 
 log "Проверяем системные зависимости..."
 
@@ -42,9 +43,16 @@ log "Проверяем системные зависимости..."
 apt update
 apt install -y python3 python3-venv python3-pip git curl
 
-log "Создаем директорию проекта..."
-mkdir -p $PROJECT_DIR
-cd $PROJECT_DIR
+log "Клонируем репозиторий с GitHub..."
+if [ -d "$PROJECT_DIR" ]; then
+    warning "Директория $PROJECT_DIR уже существует. Обновляем..."
+    cd $PROJECT_DIR
+    git pull origin main
+else
+    log "Клонируем репозиторий..."
+    git clone $REPO_URL $PROJECT_DIR
+    cd $PROJECT_DIR
+fi
 
 log "Создаем виртуальное окружение..."
 if [ ! -d "$VENV_DIR" ]; then
@@ -93,7 +101,10 @@ echo ""
 echo "🎉 Развертывание завершено!"
 echo ""
 echo "📝 Следующие шаги:"
-echo "1. Отредактируйте файл .env с вашими API ключами:"
+echo "1. Обновите URL репозитория в скрипте (если нужно):"
+echo "   REPO_URL в файле deploy.sh"
+echo ""
+echo "2. Отредактируйте файл .env с вашими API ключами:"
 echo "   nano $PROJECT_DIR/.env"
 echo ""
 echo "2. Запустите сервисы:"
