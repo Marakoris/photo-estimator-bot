@@ -1,0 +1,30 @@
+[Unit]
+Description=VK GPT фотоскупка бот
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/root/photo-estimator-bot
+Environment=PATH=/root/photo-estimator-bot/gpt-bot-env/bin
+ExecStart=/root/photo-estimator-bot/gpt-bot-env/bin/python /root/photo-estimator-bot/bot.py
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gpt-bot
+
+# Ограничения ресурсов
+MemoryMax=512M
+CPUQuota=50%
+
+# Безопасность
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/root/photo-estimator-bot
+
+[Install]
+WantedBy=multi-user.target
