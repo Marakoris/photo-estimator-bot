@@ -1,0 +1,15 @@
+# OpenRouter API для GPT-4
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+
+# VK API токен для бота
+VK_API_TOKEN=your_vk_bot_token_here
+
+# Telegram уведомления (опционально)
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+TELEGRAM_CHAT_ID=your_telegram_chat_id_here
+
+# Пример:
+# OPENROUTER_API_KEY=sk-or-v1-abc123def456...
+# VK_API_TOKEN=vk1.a.abc123def456...
+# TELEGRAM_BOT_TOKEN=123456789:ABC-DEF123456789...
+# TELEGRAM_CHAT_ID=-1001234567890
