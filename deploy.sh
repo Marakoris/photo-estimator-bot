@@ -72,8 +72,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/photo-estimator-bot
-Environment=PATH=/root/photo-estimator-bot/gpt-bot-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ExecStart=/root/photo-estimator-bot/gpt-bot-env/bin/python /root/photo-estimator-bot/bot.py
+ExecStart=/bin/bash -c 'cd /root/photo-estimator-bot && source gpt-bot-env/bin/activate && python bot.py'
 Restart=always
 RestartSec=10
 StandardOutput=syslog
@@ -93,8 +92,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/photo-estimator-bot
-Environment=PATH=/root/photo-estimator-bot/gpt-bot-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
-ExecStart=/root/photo-estimator-bot/gpt-bot-env/bin/gunicorn --bind 0.0.0.0:8080 --workers 2 web_api:app
+ExecStart=/bin/bash -c 'cd /root/photo-estimator-bot && source gpt-bot-env/bin/activate && gunicorn --bind 0.0.0.0:8080 --workers 2 web_api:app'
 Restart=always
 RestartSec=10
 StandardOutput=syslog
