@@ -1,0 +1,31 @@
+[Unit]
+Description=Flask GPT Web API
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/root/photo-estimator-bot
+Environment=PATH=/root/photo-estimator-bot/gpt-bot-env/bin
+Environment=FLASK_ENV=production
+ExecStart=/root/photo-estimator-bot/gpt-bot-env/bin/gunicorn --bind 0.0.0.0:8080 --workers 2 --timeout 120 web_api:app
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gpt-web
+
+# Ограничения ресурсов
+MemoryMax=1G
+CPUQuota=75%
+
+# Безопасность
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/root/photo-estimator-bot
+
+[Install]
+WantedBy=multi-user.target
